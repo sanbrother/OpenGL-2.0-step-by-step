@@ -1,0 +1,12 @@
+LDLIBS=-lglut -lGLEW
+
+LDFLAGS += -dylib_file \
+/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:\
+/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib \
+-framework Cocoa -framework OpenGL
+
+all: triangle
+clean:
+	rm -f *.o triangle
+triangle: ../common/shader_utils.o
+.PHONY: all clean

@@ -1,0 +1,13 @@
+LDLIBS=-lglut -lGLEW -lm
+
+LDFLAGS += -dylib_file \
+/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:\
+/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib \
+-framework Cocoa -framework OpenGL
+
+all: cube
+clean:
+	rm -f *.o cube
+cube: ../common/shader_utils.o
+cube.o: res_texture.c
+.PHONY: all clean
